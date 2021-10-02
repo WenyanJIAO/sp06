@@ -25,17 +25,17 @@ del_5<-split_punct(del_4,':')
 del_6<-split_punct(del_5,"?")
 
 ##6
-b<-tolower(del_6)
-c<-unique(b)
-d<-match(b,c)
-h<-tabulate(d)
+text <- tolower(del_6)
+k <- unique(text, ordered = FALSE)
+k1 <- match(text,k)
+k2 <- tabulate(k1)
 
 x=0
-for (i in 1:length(h)) {
-  if (h[i]>89) 
+for (i in 1:length(k2)) {
+  if (k2[i]>89) 
     x=x+1
 }
-x
+(x-1000)<5
 
 
 
