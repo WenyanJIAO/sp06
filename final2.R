@@ -45,12 +45,12 @@ for (i in 1:length(k2)) {
   if (k2[i] >=90)
     m = m + 1
 }
-m  ## Find that there are 1004 words with the number of occurrences greater than or equal to 90
+m  ## Find that there are m(approximately equal to 1000) words with the number of occurrences greater than or equal to 90
 
 g <- numeric(0)
 x <- 0
 for (i in 1:length(k2)) {
-  ## Find the index of the most frequent 1004 words in the separated symbol text
+  ## Find the index of the most frequent m words in the separated symbol text
   if (k2[i] >= 90) {
     x <- x + 1
     g[x] <- i
@@ -63,10 +63,10 @@ for (i in 1:length(k2)) {
 
 b <- numeric(0)
 for (i in 1:length(g)) {
-  ## Create vector b, put the most frequent 1004 words into it through index
+  ## Create vector b, put the most frequent m words into it through index
   b[i] <- k[g[i]]
 }
-b  ## Get the most frequent 1004 words in bible text
+b  ## Get the most frequent m words in bible text
 
 ##7
 q <- match(text, b)   ## Match the word in b with the original text. If the word in the original text is not in b, it is NA
@@ -108,7 +108,8 @@ for (i in 1:length(b)) {
   }
 }
 A   ## The conditional probability matrix A is obtained
-sum(A[1,])==1   ## Judge whether the sum of the probabilities of each line is 1
+i<-sample(1:length(b),1)   ## Randomly take the ith row of A matrix
+sum(A[i,])   ## calculate the sum of the probabilities of the random line i, the expected value is 1
 
 ##8
 index <- numeric(0)   ## Define index vector named index
